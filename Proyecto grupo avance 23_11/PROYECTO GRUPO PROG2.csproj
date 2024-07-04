@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>Proyecto_grupo_PRG2</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="blue-green-gradient-background-with-spheres-and-shapes.jpg" />
+    <None Remove="discos.png" />
+    <None Remove="F1.jpg" />
+    <None Remove="F2.jpg" />
+    <None Remove="F3.jpg" />
+    <None Remove="src\img\home-solid.png" />
+    <None Remove="src\img\inbox-solid.png" />
+    <None Remove="src\img\power-off-solid.png" />
+    <None Remove="src\img\question-circle-solid.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="blue-green-gradient-background-with-spheres-and-shapes.jpg" />
+    <Resource Include="discos.png" />
+    <Resource Include="F1.jpg" />
+    <Resource Include="F2.jpg" />
+    <Resource Include="F3.jpg" />
+    <Resource Include="src\img\home-solid.png" />
+    <Resource Include="src\img\inbox-solid.png" />
+    <Resource Include="src\img\power-off-solid.png" />
+    <Resource Include="src\img\question-circle-solid.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="resources\" />
+  </ItemGroup>
+
+</Project>

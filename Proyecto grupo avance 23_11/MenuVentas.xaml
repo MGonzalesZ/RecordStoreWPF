@@ -1,0 +1,296 @@
+﻿<Window x:Class="Proyecto_grupo_PRG2.MenuVentas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_grupo_PRG2"
+        mc:Ignorable="d"
+        Title="MenuVentas" Height="780" Width="800">
+    <Window.Resources>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+        <Style x:Key="TextBORDERstyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="BotonMENU1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" Foreground="Black">
+        <ScrollViewer.Background>
+            <ImageBrush ImageSource="/F1.jpg"/>
+        </ScrollViewer.Background>
+        <StackPanel>
+            <Grid Height="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnInicio" Grid.Column="0" 
+                        Background="#FF04FD85"
+                        Click="btnInicio_Click">
+                    <Grid Width="190" Height="40" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="1" Content="Inicio" FontSize="20" Foreground="Black"/>
+                        <Image Source="/src/img/home-solid.png"/>
+                    </Grid>
+                </Button>
+
+                <Button x:Name="btnInventario" Grid.Column="1" 
+                        Background="#FF04FD85"
+                        Click="btnInventario_Click">
+                    <Button.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Foreground>
+                    <Grid Width="190" Height="40" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="1" Content="Inventario" FontSize="20"/>
+                        <Image Source="/src/img/inbox-solid.png" />
+                    </Grid>
+                </Button>
+
+                <Button x:Name="btnAyuda" Grid.Column="2" 
+                        Background="#FF04FD85"
+                        Click="btnAyuda_Click">
+                    <Grid Width="190" Height="40" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="1" Content="Ayuda" FontSize="20"/>
+                        <Image Source="/src/img/question-circle-solid.png" />
+                    </Grid>
+                </Button>
+
+                <Button x:Name="btnSalir" Grid.Column="3" 
+                        Background="#FF04FD85"
+                        Click="btnSalir_Click">
+                    <Grid Width="190" Height="40" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="1" Content="Salir" FontSize="20"/>
+                        <Image Source="/src/img/power-off-solid.png" />
+                    </Grid>
+                </Button>
+
+            </Grid>
+
+            <TextBlock Text="Menu" FontSize="45"
+                   TextAlignment="Center"
+                   FontWeight="Bold" FontStyle="Italic" Foreground="#FF0A0A0A" Background="#FF61CFFD"/>
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="20*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="540"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Datos Personales" FontSize="15"
+                   TextAlignment="Left" Foreground="Black"
+                   FontWeight="Bold" Margin="20,0,0,10"/>
+                <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+
+                    <WrapPanel Margin="20,30,0,10">
+                        <Label FontWeight="Bold" Content="Nombres:"/>
+                        <TextBox Style="{DynamicResource TextBORDERstyle}" x:Name="txtNombre" Width="250" />
+                    </WrapPanel>
+
+                    <WrapPanel Margin="20,20,0,10">
+                        <Label FontWeight="Bold" Content="Direccion:"/>
+                        <TextBox Style="{DynamicResource TextBORDERstyle}" x:Name="txtDireccion" Width="250" />
+                    </WrapPanel>
+
+                    <WrapPanel Margin="20,20,0,10">
+                        <Label FontWeight="Bold" Content="N.I.T.:         "/>
+                        <TextBox Style="{DynamicResource TextBORDERstyle}" x:Name="txtNIT" Width="250" />
+                    </WrapPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Row="0" Grid.Column="1">
+                    <WrapPanel Margin="20,30,0,10">
+                        <Label FontWeight="Bold" Content="Apellidos:"/>
+                        <TextBox Style="{DynamicResource TextBORDERstyle}" x:Name="txtApellidos" Width="250" />
+                    </WrapPanel>
+
+                    <WrapPanel Margin="20,20,0,10">
+                        <Label FontWeight="Bold" Content="Teléfono:"/>
+                        <TextBox Style="{DynamicResource TextBORDERstyle}" x:Name="txtTelefono" Width="250" />
+                    </WrapPanel>
+
+                    <Label FontWeight="Bold" Content="Fecha de Nacimiento:" Margin="20,20,20,0" 
+                           Width="140" HorizontalAlignment="Left"/>
+                    <DatePicker x:Name="dpFechaNac" Margin="-20,-25,20,0" Width="220" 
+                                HorizontalAlignment="Right" SelectedDate="01-01-2000" />
+
+                </StackPanel>
+
+
+                <WrapPanel Grid.Row="1" Grid.Column="0" Margin="20">                   
+                        <Label FontWeight="Bold" Content="Departamento:" />
+                    <ComboBox x:Name="combCant" HorizontalAlignment="Right" Width="220">
+                        <ComboBox.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#FFF0F0F0"/>
+                                <GradientStop Color="#FF0BF1AD" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ComboBox.Background>
+                        <ComboBoxItem IsSelected="True" Content="La Paz"/>
+                        <ComboBoxItem Content="Santa Cruz"/>
+                        <ComboBoxItem Content="Cochabamba"/>
+                        <ComboBoxItem Content="Potosí"/>
+                        <ComboBoxItem Content="Oruro"/>
+                        <ComboBoxItem Content="Tarija"/>
+                        <ComboBoxItem Content="Pando"/>
+                        <ComboBoxItem Content="Beni"/>
+                        <ComboBoxItem Content="Sucre"/>
+                    </ComboBox>
+                </WrapPanel>
+
+                <WrapPanel Grid.Row="1" Grid.Column="1" >
+                    <Label FontWeight="Bold" Content="Sexo:" Width="120" 
+                           Margin="20,10,20,0"/>
+                    <RadioButton FontWeight="Bold" x:Name="F"  
+                                 Margin="-60,20,0,0" Content="F"/>
+                    <RadioButton FontWeight="Bold" x:Name="M"  
+                                 Margin="-20,20,0,0" Content="M" IsChecked="True"/>
+                </WrapPanel>
+
+                <StackPanel Grid.ColumnSpan="3" Grid.Row="2">
+
+                    <TextBlock Text="Albumes" FontSize="25"
+                   TextAlignment="Center" 
+                   FontWeight="Bold" Foreground="#FF656565"/>
+                    <DataGrid x:Name="dgInventario" Margin="10,10,10,10"/>
+
+                    <Button Style="{DynamicResource BotonMENU1}" x:Name="btnselectAlbum" 
+                            Content="Seleccione Disco" 
+                            Margin="20" Background="#FF1892E0" 
+                            Height="42" Foreground="White"
+                            Click="btnselectAlbum_Click"/>
+
+                    <Button Style="{DynamicResource BotonMENU1}" x:Name="btnContinuarPedido" 
+                            Content="Pedido Listo" 
+                            Margin="20" Background="#FF1892E0" 
+                            Height="42" Foreground="White"
+                            Click="btnContinuarPedido_Click"/>
+                </StackPanel>
+                
+                <StackPanel Grid.Row="3" Grid.Column="0" >
+                    <CheckBox x:Name="chkcheck" Grid.Column="0" Grid.Row="2" Margin="10,0,10,10" 
+                              Content="Guardar mi informacion para futuras compras" Width="300" HorizontalAlignment="Left"/>
+                </StackPanel>     
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

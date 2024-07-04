@@ -1,0 +1,21 @@
+﻿<Window x:Class="Proyecto_grupo_PRG2.PreguntaCantidad"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_grupo_PRG2"
+        mc:Ignorable="d"
+        Title="PreguntaCantidad" Height="130" Width="400">
+    <StackPanel>
+        <WrapPanel Margin="5">
+            <Label Content="Ingrese la cantidad"/>
+            <TextBox x:Name="txtCantidad" Width="100"/>            
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Center">
+        <Button x:Name="btnCantidad" Content="Aceptar" Margin="10" Width="100"
+                Click="btnCantidad_Click"/>
+        <Button x:Name="btncancelPreg" Content="Cancelar" Margin="10" Width="100"
+                Click="btncancelPreg_Click"/>
+        </WrapPanel>
+    </StackPanel>
+</Window>

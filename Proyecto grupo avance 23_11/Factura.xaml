@@ -1,0 +1,199 @@
+﻿<Window x:Class="Proyecto_grupo_PRG2.Factura"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_grupo_PRG2"
+        mc:Ignorable="d"
+        Title="Factura" Height="1100" Width="800">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" Foreground="Black">        
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="190"/>
+                <RowDefinition Height="260"/>
+                <RowDefinition Height="160"/>
+                <RowDefinition Height="140"/>
+                <RowDefinition Height="120"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Background="#FFC3FFE5" >
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Content="Musike store Inc." Margin="0" VerticalAlignment="Center" FontSize="15"/>
+                    <Label Grid.Row="2" Content="Calle Achumani N#435" Margin="0,0,0,0" FontSize="15"/>
+                    <Label Grid.Row="4" Content="2256774, musikstr@gmail.com" Margin="0,0,0,0" FontSize="15" Grid.RowSpan="3" RenderTransformOrigin="0.505,0.661" />
+
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="Factura" Margin="0" HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="20" Foreground="Black"/>
+                    <Label Grid.Row="1" Content="Fecha" Margin="0"  FontSize="15" HorizontalAlignment="Center"
+                               />
+                    <Label x:Name="lblfecha" Grid.Row="2" Content=""  HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+                    <Label Grid.Row="3" Content="Nro Factura"  HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+                    <Label x:Name="lblfacturan" Grid.Row="4" Content="000"  HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+                </Grid>
+
+            </Grid>
+
+
+            <Grid Grid.Row="1" Grid.Column="0" >
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="5"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Cliente" Grid.Row="0" FontSize="20" Background="{x:Null}" FontWeight="Bold"/>
+                    <Label x:Name="lblNITcli" Content="#"  Grid.Row="1" FontSize="15" Margin="0"/>
+                    <Label x:Name="lblnomcli" Content="#"  Grid.Row="2" FontSize="15" Margin="0"/>
+                    <Label x:Name="lblDirecli" Content="#"  Grid.Row="3" FontSize="15" Margin="0"/>
+                    <Label x:Name="lblTelfcli" Content="#"  Grid.Row="4" FontSize="15" Margin="0"/>
+                    <Label x:Name="lblEdadcli" Content="#"  Grid.Row="5" FontSize="15" Margin="0"/>
+
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="0" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" ShowGridLines="True" Background="#FF8CF7A1">
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--
+                    <Label Content="Descripcion" Grid.Column="0" FontSize="15" VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                    <Label Content="Unidades" Grid.Column="1" FontSize="15" VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                    <Label Content="PrecioUnitario" Grid.Column="2" FontSize="15" VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                    <Label Content="Precio" Grid.Column="3" FontSize="15" VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+                    -->
+                </Grid>
+
+                <Grid Grid.Row="1" ShowGridLines="True">
+
+                    <DataGrid x:Name="dgfactura" Margin="0,0,0,0"/>
+
+                </Grid>
+
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="0" >
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Total parcial:" Grid.Row="0" FontSize="15"
+                 HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label Content="Descuento:" Grid.Row="1" FontSize="15"
+                  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <!--
+                    <Label Content="Subtotal Descuento:" Grid.Row="2" FontSize="15"
+                 HorizontalAlignment="Right"/>
+                    -->
+                    <Label Content="IVA:" Grid.Row="2" FontSize="15"
+                  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <!--
+                    <Label Content="Subtotal Impuesto:" Grid.Row="4" FontSize="15"
+                 HorizontalAlignment="Right"/>
+                    -->
+
+                    <Label x:Name="lblTotParc" Content="0" Grid.Column="1" Grid.Row="0" FontSize="15"
+                  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblDesc" Content="0" Grid.Column="1" Grid.Row="1" FontSize="15"
+                  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblIva" Content="0" Grid.Column="1" Grid.Row="2" FontSize="15"
+                  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                </Grid>
+
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="0" >
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="#FF5CB2E0" >
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Total:" Grid.Column="0" FontSize="18"
+                  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblTotal" Content="0" Grid.Column="1" FontSize="18"
+                  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                    </Grid>
+                    <Label x:Name="lblFechaLimite" Content="Fecha Limite de Emisión" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FontSize="15"
+                  HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                </Grid>
+                <Button x:Name="btnImprimirFactura" Content="Imprimir Factura" Width="170" Height="50"
+                        FontSize="15" Click="btnImprimirFactura_Click"/>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Window>
